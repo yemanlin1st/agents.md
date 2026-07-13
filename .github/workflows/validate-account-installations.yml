@@ -1,0 +1,156 @@
+name: Validate hybrid account installation control plane
+
+on:
+  pull_request:
+    paths:
+      - "PEFY_ACCOUNT_FIRST_INSTALLATIONS.md"
+      - "installations/**"
+      - ".github/workflows/validate-account-installations.yml"
+  push:
+    branches:
+      - "pefy/account-first-installations"
+    paths:
+      - "PEFY_ACCOUNT_FIRST_INSTALLATIONS.md"
+      - "installations/**"
+      - ".github/workflows/validate-account-installations.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate shell syntax
+        run: bash -n installations/rocky-recovery-bootstrap.sh
+
+      - name: Run ShellCheck
+        run: shellcheck installations/rocky-recovery-bootstrap.sh
+
+      - name: Validate hybrid YAML manifest
+        run: |
+          python -m pip install --disable-pip-version-check --quiet pyyaml
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          path = Path("installations/account-manifest.yaml")
+          data = yaml.safe_load(path.read_text(encoding="utf-8"))
+
+          required = {
+              "schema_version",
+              "manifest_name",
+              "owner",
+              "mode",
+              "doctrine",
+              "statuses",
+              "operating_model",
+              "capability_defaults",
+              "transversal_controls",
+              "role_passports",
+              "maturity_model",
+              "lifecycle",
+              "kpis",
+              "capabilities",
+              "recovery_gates",
+          }
+          missing = sorted(required - set(data))
+          if missing:
+              raise SystemExit(f"Missing required manifest keys: {missing}")
+
+          statuses = set(data["statuses"])
+          required_statuses = {
+              "VERIFIED_ACTIVE",
+              "AVAILABLE_IN_ACCOUNT",
+              "PREPARED_EXTERNAL",
+              "DEFERRED_TO_ROCKY",
+              "BLOCKED",
+          }
+          if statuses != required_statuses:
+              raise SystemExit(f"Status model mismatch: {sorted(statuses)}")
+
+          modes = set(data["operating_model"]["execution_modes"])
+          required_modes = {
+              "H1_HUMAN_LED",
+              "H2_HUMAN_LED_AI_ASSISTED",
+              "H3_AI_LED_HUMAN_SUPERVISED",
+              "H4_AGENT_EXECUTED_HUMAN_GATED",
+              "H5_POLICY_BOUNDED_AUTOMATION",
+          }
+          if modes != required_modes:
+              raise SystemExit(f"Execution mode mismatch: {sorted(modes)}")
+
+          maturity_levels = set(data["maturity_model"])
+          required_maturity = {
+              "M0_UNKNOWN",
+              "M1_IDENTIFIED",
+              "M2_CONTROLLED",
+              "M3_VERIFIED",
+              "M4_MANAGED",
+              "M5_OPTIMIZED",
+          }
+          if maturity_levels != required_maturity:
+              raise SystemExit(f"Maturity model mismatch: {sorted(maturity_levels)}")
+
+          controls = data["transversal_controls"]
+          if len(controls) < 12:
+              raise SystemExit("At least 12 transversal assurance domains are required")
+          control_ids = [item.get("id") for item in controls]
+          if len(control_ids) != len(set(control_ids)):
+              raise SystemExit("Transversal control IDs must be unique")
+
+          capabilities = data["capabilities"]
+          if not isinstance(capabilities, list) or not capabilities:
+              raise SystemExit("Manifest capabilities must be a non-empty list")
+
+          capability_ids = [item.get("id") for item in capabilities]
+          if len(capability_ids) != len(set(capability_ids)):
+              raise SystemExit("Capability IDs must be unique")
+
+          for item in capabilities:
+              capability_id = item.get("id", "<missing>")
+              if item.get("status") not in required_statuses:
+                  raise SystemExit(f"Invalid status for {capability_id}: {item.get('status')}")
+              maturity = item.get("maturity", data["capability_defaults"].get("maturity"))
+              if maturity not in required_maturity:
+                  raise SystemExit(f"Invalid maturity for {capability_id}: {maturity}")
+              mode = item.get("execution_mode", data["capability_defaults"].get("execution_mode"))
+              if mode not in required_modes:
+                  raise SystemExit(f"Invalid execution mode for {capability_id}: {mode}")
+
+          for gate in data["recovery_gates"]:
+              if gate.get("required_mode") not in required_modes:
+                  raise SystemExit(f"Invalid recovery gate mode for {gate.get('id')}")
+              if not gate.get("evidence"):
+                  raise SystemExit(f"Recovery gate {gate.get('id')} has no evidence requirements")
+
+          print(
+              "YAML OK: "
+              f"{len(capabilities)} capabilities, "
+              f"{len(controls)} transversal controls, "
+              f"{len(data['role_passports'])} role passports"
+          )
+          PY
+
+      - name: Check for likely committed secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            PEFY_ACCOUNT_FIRST_INSTALLATIONS.md
+            installations/AGENTS.md
+            installations/account-manifest.yaml
+            installations/rocky-recovery-bootstrap.sh
+          )
+          pattern='(sk-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|password[[:space:]]*[:=][[:space:]]*[^<][^[:space:]]+)'
+          if grep -Ein "$pattern" "${files[@]}"; then
+            echo "Potential secret detected. Review before merge." >&2
+            exit 1
+          fi
+          echo "No likely secret pattern detected."

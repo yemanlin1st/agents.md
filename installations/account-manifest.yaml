@@ -1,0 +1,557 @@
+schema_version: "1.1"
+manifest_name: "PEFY-GG Account-First Hybrid Installation Manifest"
+owner: "Dr Erick Franck Y. PATHINVO"
+repository: "yemanlin1st/agents.md"
+branch: "pefy/account-first-installations"
+mode: "account-first-hybrid-temporary"
+updated_on: "2026-07-13"
+
+doctrine:
+  operating_characteristics:
+    - intelligent
+    - dynamic
+    - hybrid_human_ai_agent
+    - transversal
+    - optimized
+    - evidence_driven
+    - secure_by_design
+    - portable
+    - resilient
+    - standards_aligned
+  temporal_model:
+    RETRO: "Audit, recover, correct, normalize, document and capitalize existing or past installations."
+    NOW: "Execute current work using the safest effective human, AI, agent or automation mode."
+    FUTURE: "Industrialize, automate, scale, monitor and restore a sovereign local operating platform."
+
+principles:
+  - truthful_status_only
+  - no_secrets_in_repository
+  - least_privilege
+  - read_only_by_default
+  - reversible_actions_by_default
+  - human_validation_for_high_impact_actions
+  - dynamic_risk_based_routing
+  - transversal_assurance
+  - continuous_optimization
+  - low_cost_self_hostable_offline_capable
+  - vendor_neutral_mcp_a2a_agents_md
+  - evidence_and_rollback_required
+
+statuses:
+  VERIFIED_ACTIVE: "Tested successfully with objective evidence in the connected account or target runtime."
+  AVAILABLE_IN_ACCOUNT: "Capability is visible, but authentication, project linkage or control validation is not yet verified."
+  PREPARED_EXTERNAL: "Configuration target is documented; connection or deployment still requires approval and verification."
+  DEFERRED_TO_ROCKY: "Requires host-level execution after Rocky Linux recovery and integrity validation."
+  BLOCKED: "Cannot proceed until a named dependency, authorization, risk or control gap is resolved."
+
+operating_model:
+  execution_modes:
+    H1_HUMAN_LED:
+      authority: human
+      use_when:
+        - strategic_or_ambiguous
+        - legal_financial_or_safety_critical
+        - irreversible_or_high_impact
+      gate: accountable_human_validation
+    H2_HUMAN_LED_AI_ASSISTED:
+      authority: human
+      use_when:
+        - professional_analysis
+        - drafting_and_quality_review
+        - complex_operational_support
+      gate: human_accountability
+    H3_AI_LED_HUMAN_SUPERVISED:
+      authority: ai_with_human_supervision
+      use_when:
+        - structured_reversible_work
+        - analysis_documentation_testing
+      gate: output_and_exception_review
+    H4_AGENT_EXECUTED_HUMAN_GATED:
+      authority: bounded_agent
+      use_when:
+        - repeatable_multi_step_operations
+        - provisioning_configuration_ci_reporting
+      gate: approval_before_high_impact_transition
+    H5_POLICY_BOUNDED_AUTOMATION:
+      authority: approved_automation
+      use_when:
+        - monitoring_validation_backup_alerting
+        - low_risk_synchronization
+      gate: policy_guardrails_logs_stop_conditions_rollback
+
+  routing_factors:
+    - business_criticality
+    - operational_impact
+    - financial_impact
+    - legal_and_regulatory_impact
+    - safety_and_security_impact
+    - reputational_and_public_impact
+    - data_sensitivity
+    - reversibility
+    - evidence_confidence
+    - human_availability
+    - connectivity_and_offline_need
+    - cost_and_quota
+    - cpu_ram_storage_and_energy_capacity
+    - time_criticality
+
+  automatic_downgrade_triggers:
+    - confidence_below_threshold
+    - unexpected_scope_or_dependency
+    - failed_security_or_compliance_control
+    - budget_or_quota_threshold_breached
+    - resource_pressure
+    - action_becomes_less_reversible
+    - validation_evidence_missing
+
+  fallback_order:
+    - safe_stop_and_preserve_evidence
+    - escalate_to_human_owner
+    - switch_to_read_only_or_dry_run
+    - use_alternate_account_capability
+    - use_managed_cloud_bridge_if_approved
+    - restore_local_sovereign_runtime
+
+capability_defaults:
+  execution_mode: H2_HUMAN_LED_AI_ASSISTED
+  maturity: M1_IDENTIFIED
+  data_classification: INTERNAL
+  environment: non_production_until_verified
+  access_model: least_privilege
+  write_policy: explicit_approval
+  network_exposure: private_or_localhost
+  secrets_location: external_secret_store_or_environment
+  audit_evidence_required: true
+  rollback_required: true
+  owner_required: true
+  cost_control_required: true
+  exit_plan_required: true
+
+transversal_controls:
+  - id: T01
+    domain: strategy_and_governance
+    required_evidence:
+      - purpose
+      - owner
+      - decision_rights
+      - raci
+      - alignment
+  - id: T02
+    domain: architecture_and_interoperability
+    required_evidence:
+      - integration_contract
+      - dependency_map
+      - portability
+      - exit_path
+  - id: T03
+    domain: cybersecurity_and_privacy
+    required_evidence:
+      - identity_and_access_review
+      - secret_management
+      - network_exposure_review
+      - data_protection
+      - vulnerability_control
+  - id: T04
+    domain: devsecops_and_quality
+    required_evidence:
+      - version_control
+      - ci_validation
+      - testing
+      - change_approval
+      - rollback_test
+  - id: T05
+    domain: data_and_knowledge_management
+    required_evidence:
+      - data_classification
+      - provenance
+      - retention
+      - backup
+      - metadata
+  - id: T06
+    domain: operations_and_continuity
+    required_evidence:
+      - monitoring
+      - incident_response
+      - recovery_procedure
+      - offline_or_degraded_mode
+  - id: T07
+    domain: finance_and_optimization
+    required_evidence:
+      - license_and_cost
+      - quota_and_egress
+      - capacity_plan
+      - value_measure
+  - id: T08
+    domain: legal_regulatory_and_standards
+    required_evidence:
+      - license_compliance
+      - contractual_constraints
+      - applicable_law
+      - iso_control_mapping
+  - id: T09
+    domain: user_experience_and_accessibility
+    required_evidence:
+      - role_based_use
+      - usability
+      - low_bandwidth_support
+      - training
+  - id: T10
+    domain: esg_and_sustainability
+    required_evidence:
+      - energy_and_resource_efficiency
+      - hardware_lifecycle
+      - responsible_ai
+  - id: T11
+    domain: supplier_and_third_party_risk
+    required_evidence:
+      - upstream_health
+      - concentration_risk
+      - maintenance_status
+      - service_exit
+  - id: T12
+    domain: audit_and_performance
+    required_evidence:
+      - kpis
+      - evidence_register
+      - findings_and_actions
+      - management_review
+
+role_passports:
+  - id: accountable_owner
+    mission: "Own purpose, risk acceptance, funding, priority and final authorization."
+    default_raci: A
+    human_required: true
+  - id: installation_orchestration_lead
+    mission: "Coordinate lifecycle, routing, dependencies, evidence and delivery."
+    default_raci: R
+    hybrid_mode: human_ai
+  - id: ai_analysis_and_qa
+    mission: "Analyze options, draft configuration, detect gaps and verify evidence."
+    default_raci: R
+    hybrid_mode: ai_supervised
+  - id: execution_agent
+    mission: "Perform bounded, reversible and logged tool operations."
+    default_raci: R
+    hybrid_mode: agent_gated
+  - id: security_privacy_validator
+    mission: "Validate access, secrets, exposure, data protection and threat controls."
+    default_raci: C
+  - id: legal_compliance_validator
+    mission: "Validate licenses, contractual constraints, laws and standards mapping."
+    default_raci: C
+  - id: finance_capacity_validator
+    mission: "Validate total cost, quotas, capacity, resource efficiency and value."
+    default_raci: C
+  - id: operations_continuity_validator
+    mission: "Validate monitoring, backup, incident, recovery and offline operation."
+    default_raci: C
+  - id: audit_reviewer
+    mission: "Independently verify status, evidence, exceptions and closure."
+    default_raci: I
+
+maturity_model:
+  M0_UNKNOWN:
+    description: "Uninventoried or unowned."
+    minimum_evidence:
+      - discovery_record
+  M1_IDENTIFIED:
+    description: "Purpose and owner recorded."
+    minimum_evidence:
+      - inventory_record
+      - owner
+  M2_CONTROLLED:
+    description: "Version, access, risk and rollback documented."
+    minimum_evidence:
+      - approved_manifest
+      - risk_review
+      - rollback_plan
+  M3_VERIFIED:
+    description: "Functional, security and recovery tests passed."
+    minimum_evidence:
+      - test_results
+      - security_validation
+      - recovery_test
+  M4_MANAGED:
+    description: "Monitoring, KPIs, incidents and changes controlled."
+    minimum_evidence:
+      - dashboard
+      - logs
+      - incident_and_change_records
+  M5_OPTIMIZED:
+    description: "Automated, portable, cost-efficient and continuously improved."
+    minimum_evidence:
+      - trend_review
+      - optimization_record
+      - management_review
+
+lifecycle:
+  - DISCOVER
+  - ASSESS
+  - APPROVE
+  - PREPARE
+  - PROVISION
+  - VERIFY
+  - OPERATE
+  - OPTIMIZE
+  - RECOVER
+  - RETIRE
+
+kpis:
+  - verified_capability_rate
+  - owner_and_classification_coverage
+  - rollback_coverage_and_success_rate
+  - deployment_success_rate
+  - mean_time_to_detect
+  - mean_time_to_recover
+  - mean_time_to_rebuild
+  - excessive_privilege_count
+  - public_exposure_exception_count
+  - patch_and_dependency_freshness
+  - backup_and_restore_test_success
+  - automation_success_and_exception_rate
+  - human_escalation_rate
+  - cloud_cost_egress_and_quota_variance
+  - resource_utilization_and_energy_efficiency
+  - portability_coverage
+  - audit_findings_and_overdue_actions
+  - redundant_tool_retirement_rate
+  - value_realized_per_capability
+
+capabilities:
+  - id: github
+    category: source_control
+    status: VERIFIED_ACTIVE
+    maturity: M3_VERIFIED
+    execution_mode: H4_AGENT_EXECUTED_HUMAN_GATED
+    owner_account: yemanlin1st
+    role: "Primary source, configuration, CI, audit, issue and pull-request control plane"
+    data_classification: INTERNAL
+    secrets_required: false
+    production_write_policy: review_required
+
+  - id: google-drive
+    category: document_management
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Controlled documents, deliverables, Sheets and Slides"
+    verification_required:
+      - authentication
+      - target_drive_or_folder
+      - sharing_policy
+      - retention_and_classification
+
+  - id: gmail
+    category: communication
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Mailbox search, drafting, sending and workflow support"
+    production_write_policy: explicit_send_authorization
+
+  - id: google-calendar
+    category: scheduling
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Scheduling, availability, event management and briefs"
+    production_write_policy: explicit_calendar_change_authorization
+
+  - id: google-contacts
+    category: identity_directory
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Contact lookup for authorized workflows"
+
+  - id: vercel
+    category: application_hosting
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Temporary web and API hosting when explicitly justified"
+    controls:
+      - separate_preview_and_production
+      - environment_variables_for_secrets
+      - deployment_protection
+      - rollback
+      - budget_monitoring
+      - exit_plan
+
+  - id: supabase
+    category: managed_platform
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "PostgreSQL, Auth, Storage, RLS and Edge Functions"
+    controls:
+      - rls_mandatory_for_multitenancy
+      - service_role_key_never_in_client
+      - backups
+      - audit_logging
+      - data_residency_review
+
+  - id: neon-postgres
+    category: managed_database
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Branchable serverless PostgreSQL for temporary cloud workloads"
+    controls:
+      - separate_branches
+      - connection_pooling
+      - least_privilege_roles
+      - egress_monitoring
+      - exit_and_export_test
+
+  - id: airtable
+    category: operations_database
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Structured operational registers, trackers and interfaces"
+
+  - id: canva
+    category: design
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Branded visual production and adaptation"
+
+  - id: figma
+    category: product_design
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "UI/UX, design systems, diagrams and design-to-code workflows"
+
+  - id: heygen
+    category: video
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Avatar and presenter-led video production"
+
+  - id: base44
+    category: application_builder
+    status: AVAILABLE_IN_ACCOUNT
+    maturity: M1_IDENTIFIED
+    role: "Rapid application prototyping and deployment"
+
+  - id: context7
+    category: documentation_mcp
+    status: PREPARED_EXTERNAL
+    maturity: M2_CONTROLLED
+    upstream: "upstash/context7"
+    role: "Version-aware current software documentation"
+    preferred_modes:
+      - mcp
+      - cli_skills
+    local_prerequisite: "Node.js 18+; align local baseline to Node.js 20.6+ or newer for the shared skill toolchain"
+    secrets_policy: "API key through environment variable or approved secret store only"
+
+  - id: datagouv-mcp
+    category: public_data_mcp
+    status: PREPARED_EXTERNAL
+    maturity: M2_CONTROLLED
+    upstream: "datagouv/datagouv-mcp"
+    endpoint: "https://mcp.data.gouv.fr/mcp"
+    role: "Search and exploration of French national open-data datasets"
+    default_access: read_only
+
+  - id: openskills
+    category: agent_skills
+    status: PREPARED_EXTERNAL
+    maturity: M2_CONTROLLED
+    upstream: "numman-ali/openskills"
+    role: "Universal SKILL.md loader for AGENTS.md-compatible agents"
+    preferred_install_scope: project_local
+    preferred_mode: universal
+
+  - id: omniroute
+    category: ai_gateway
+    status: PREPARED_EXTERNAL
+    maturity: M2_CONTROLLED
+    upstream: "diegosouzapw/OmniRoute"
+    role: "Multi-provider AI routing, fallback and MCP/A2A integration"
+    deployment_policy: "Do not expose publicly without authentication, rate limiting and audit logs"
+
+  - id: cockpit
+    category: host_management
+    status: DEFERRED_TO_ROCKY
+    maturity: M1_IDENTIFIED
+    role: "Rocky Linux web administration"
+
+  - id: docker-engine
+    category: containers
+    status: DEFERRED_TO_ROCKY
+    maturity: M2_CONTROLLED
+    role: "Container runtime and Compose"
+
+  - id: portainer-ce
+    category: container_management
+    status: DEFERRED_TO_ROCKY
+    maturity: M2_CONTROLLED
+    role: "Container management UI"
+    exposure_policy: localhost_or_private_network_only
+
+  - id: ollama
+    category: local_ai
+    status: DEFERRED_TO_ROCKY
+    maturity: M2_CONTROLLED
+    role: "Lightweight local model runtime and local API"
+    exposure_policy: localhost_only
+    hardware_policy: "Use small quantized models appropriate for the Core i5 host"
+
+  - id: activepieces
+    category: workflow_automation
+    status: DEFERRED_TO_ROCKY
+    maturity: M1_IDENTIFIED
+    role: "Self-hosted workflow automation"
+
+  - id: beszel
+    category: observability
+    status: DEFERRED_TO_ROCKY
+    maturity: M1_IDENTIFIED
+    role: "Lightweight host and container monitoring"
+
+recovery_gates:
+  - id: G1
+    name: operating_system_integrity
+    required_mode: H1_HUMAN_LED
+    evidence:
+      - dnf_check
+      - systemd_failed_units_review
+      - storage_and_usb_validation
+  - id: G2
+    name: container_runtime
+    required_mode: H4_AGENT_EXECUTED_HUMAN_GATED
+    evidence:
+      - docker_info
+      - compose_version
+      - hello_world_container
+  - id: G3
+    name: secured_management
+    required_mode: H2_HUMAN_LED_AI_ASSISTED
+    evidence:
+      - cockpit_active
+      - portainer_private_binding
+      - firewall_review
+      - access_review
+  - id: G4
+    name: local_ai
+    required_mode: H3_AI_LED_HUMAN_SUPERVISED
+    evidence:
+      - ollama_service_active
+      - localhost_api_test
+      - hardware_capacity_review
+      - small_model_smoke_test
+  - id: G5
+    name: agent_and_mcp_layer
+    required_mode: H4_AGENT_EXECUTED_HUMAN_GATED
+    evidence:
+      - context7_test
+      - datagouv_read_only_test
+      - openskills_sync
+      - omniroute_health_check
+  - id: G6
+    name: production_readiness
+    required_mode: H1_HUMAN_LED
+    evidence:
+      - transversal_control_review
+      - backups
+      - monitoring
+      - secrets_externalized
+      - rollback_test
+      - access_review
+      - cost_and_exit_plan
+      - owner_acceptance
